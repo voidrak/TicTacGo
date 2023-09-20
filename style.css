@@ -1,0 +1,33 @@
+body {
+  background: linear-gradient(
+    41deg,
+    rgba(223, 156, 97, 1) 29%,
+    rgba(173, 57, 244, 1) 100%
+  );
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100svh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.table {
+  background-color: #f5f5dc;
+  width: 400px;
+  height: 400px;
+}
+.pop-up {
+  background-color: aqua;
+  width: 300px;
+  height: 300px;
+  display: none;
+  position: absolute;
+  left: 30%;
+  top: 30%;
+  z-index: 2;
+  box-shadow: 1px -1px 5px 3px #a39730;
+}
+.clicked .pop-up {
+  display: block;
+}
