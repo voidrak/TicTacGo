@@ -76,7 +76,10 @@ body {
   justify-content: center;
   align-items: center;
   border-radius: 9px;
-  /* opacity: 0; */
+  /* display: none; */
+  opacity: 0;
+  z-index: -1;
+  /* transition: opacity 3s; */
 }
 .pop-up h3 {
   font-size: 2rem;
