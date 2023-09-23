@@ -2,7 +2,7 @@
 
 <p id="description">A simple tic-tac-toe game</p>
 <p>   
-  - 🕸️:<a href="https://tictacgorak.vercel.app/">Click Here</a>
+  *  Web🕸️ : <a href="https://tictacgorak.vercel.app/">Click Here</a>
 </p>
 
   
