@@ -15,6 +15,11 @@ body {
     rgba(223, 156, 97, 1) 29%,
     rgba(173, 57, 244, 1) 100%
   );
+  /* background: linear-gradient(
+    41deg,
+    rgb(89, 65, 43) 29%,
+    rgb(74, 25, 104) 100%
+  ); */
   background-repeat: no-repeat;
   display: flex;
   justify-content: center;
@@ -44,6 +49,7 @@ body {
   border-right: 1px solid black;
   display: grid;
   place-items: center;
+  cursor: pointer;
 }
 .parent div h1 {
   font-size: 3rem;
@@ -79,6 +85,7 @@ body {
   /* display: none; */
   opacity: 0;
   z-index: -1;
+  cursor: move;
   /* transition: opacity 3s; */
 }
 .pop-up h3 {
@@ -103,6 +110,13 @@ body {
   );
   font-size: 1rem;
   color: white;
+}
+#personal {
+  margin-top: 1rem;
+}
+#personal a:any-link {
+  text-decoration: none;
+  color: aquamarine;
 }
 
 @media screen and (min-width: 768px) {

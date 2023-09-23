@@ -4,6 +4,35 @@ const turnIndicator = document.querySelector(".turn-indicator span");
 const popUp = document.querySelector(".pop-up");
 const resultBoard = document.querySelector(".pop-up h3");
 const restartBtn = document.querySelector(".pop-up button");
+const movableDiv = document.getElementById("movableDiv");
+
+let isDragging = false;
+let offsetX = 0;
+let offsetY = 0;
+
+movableDiv.addEventListener("mousedown", startDrag);
+movableDiv.addEventListener("mousemove", drag);
+movableDiv.addEventListener("mouseup", stopDrag);
+movableDiv.addEventListener("mouseleave", stopDrag);
+
+function startDrag(e) {
+  isDragging = true;
+  offsetX = e.offsetX;
+  offsetY = e.offsetY;
+}
+
+function drag(e) {
+  if (isDragging) {
+    movableDiv.style.left = `${e.pageX - offsetX}px`;
+    movableDiv.style.top = `${e.pageY - offsetY}px`;
+  }
+}
+
+function stopDrag() {
+  isDragging = false;
+}
+
+/***************************************************/
 
 let isGameActive = true;
 let gameBoard = [" ", " ", " ", " ", " ", " ", " ", " ", " "];
@@ -13,6 +42,10 @@ cells.forEach((cell, index) => {
   cell.addEventListener("click", () => {
     masterFunction(index);
   });
+});
+
+restartBtn.addEventListener("click", () => {
+  restartGame();
 });
 
 function masterFunction(index) {
@@ -31,6 +64,7 @@ function cellUpdater(index) {
 }
 
 function togglePlayer() {
+  turnIndicator.textContent = currentPlayer;
   if (currentPlayer == "X") {
     currentPlayer = "O";
   } else if (currentPlayer === "O") {
@@ -69,15 +103,11 @@ function checkWinning() {
 }
 
 function restartGame() {
-  textHolder.forEach((text) => {
-    text.textContent = " ";
+  cells.forEach((cell) => {
+    cell.innerHTML = "<h1></h1>";
+    popUp.style.opacity = "0";
+    popUp.style.zIndex = "-1";
+    gameBoard = [" ", " ", " ", " ", " ", " ", " ", " ", " "];
+    isGameActive = true;
   });
-  popUp.style.opacity = "0";
-  popUp.style.zIndex = "-1";
-  gameBoard = [" ", " ", " ", " ", " ", " ", " ", " ", " "];
-  isGameActive = true;
 }
-
-restartBtn.addEventListener("click", () => {
-  restartGame();
-});
